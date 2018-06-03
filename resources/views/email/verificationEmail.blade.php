@@ -1,0 +1,1 @@
+To verifi email <a href="{{route('emailVerificationChecker',["email"=> $user->email,"token"=>$user->verify_token])}}" >click here</a>
