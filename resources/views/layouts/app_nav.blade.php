@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="container-scroller">
-        @include('inc.navbar')
+        @include('inc.navbar', ['user' => $user])
         @yield('content')
     </div>
     <!-- container-scroller -->

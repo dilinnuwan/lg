@@ -122,7 +122,7 @@ $(document).ready(function(){
     viewport: {
       width:200,
       height:200,
-      type:'circle' //circle
+      type:'square' //circle
     },
     boundary:{
       width:300,

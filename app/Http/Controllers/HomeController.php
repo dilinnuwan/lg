@@ -27,11 +27,16 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $user_details = User::find($user->id)->UserDetail;
+        $avatar = User::find($user->id)->Avatar;
 
         if($user_details == null){
             return redirect()->route('setup');
-        }else{
-            return view('home');
+        }
+        elseif ($avatar == null) {
+            return redirect()->route('setup.avatar');
+        }
+        else{
+            return view('home')->with('user',$user);
         }
     }
 }

@@ -65,7 +65,16 @@
         </li>
         <li class="nav-item dropdown d-none d-xl-inline-block">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle" src="{{ asset('theme_src/images/faces/face1.jpg') }}" alt="Profile image">
+            @if($user->Avatar->filename == null)
+              @if($user->UserDetail->gender=="Male")
+              <img src="{{ asset('theme_src/images/faces/boy.png') }}" class="img-xs rounded-circle" alt="profile image"/>
+              @else
+              <img src="{{ asset('theme_src/images/faces/girl.png') }}" class="img-xs rounded-circle" alt="profile image"/>
+              @endif
+            @else
+              <img src="{{ asset('theme_src/profile_pics/'.$user->Avatar->filename) }}" class="img-xs rounded-circle" alt="profile image"/>
+            @endif
+
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <a class="dropdown-item mt-2">
