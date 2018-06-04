@@ -27,6 +27,7 @@ class ProfileSetupController extends Controller
 
         $user_detail = new UserDetail;
         $user_detail->user_id = $id;
+        $user_detail->gender = $request->input('gender');
         $user_detail->nationality = $request->input('nationality');
         $user_detail->religion = $request->input('religion');
         $user_detail->maritalstatus = $request->input('maritalstatus');

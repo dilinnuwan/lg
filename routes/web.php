@@ -21,5 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('emailVerificationChecker/{email}/{token}','Auth\RegisterController@emailVerificationChecker')->name('emailVerificationChecker');
 
 Route::get('/setup', 'ProfileSetupController@index')->name('setup');
+Route::get('/avatar-setup', 'AvatarSetupController@index')->name('setup.avatar');
 
 Route::match(['put', 'patch'], 'setup/{profile}', 'ProfileSetupController@update')->name('setup.update');
+Route::match(['put', 'patch'], 'avatar-setup/{profile}', 'AvatarSetupController@update')->name('setup.avatar.update');
