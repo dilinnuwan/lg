@@ -19,7 +19,7 @@ class AvatarSetupController extends Controller
     public function index()
     {
     	$user = Auth::user();
-    	if ($user->Avatar->filename == null) {
+    	if ($user->Avatar == null) {
     		$user_details = User::find($user->id)->UserDetail;
     		return view('pages.avatar_setup')->with('user',$user)->with('user_details',$user_details);
     	}

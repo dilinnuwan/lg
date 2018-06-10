@@ -17,7 +17,13 @@ class ProfileSetupController extends Controller
     public function index()
     {
     	$user = Auth::user();
-    	return view('pages.profile_setup')->with('user',$user);
+
+        if ($user->UserDetail == null) {
+            return view('pages.profile_setup')->with('user',$user);
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     public function update(Request $request, $id)
@@ -32,7 +38,7 @@ class ProfileSetupController extends Controller
         $user_detail->religion = $request->input('religion');
         $user_detail->maritalstatus = $request->input('maritalstatus');
         $user_detail->height = $request->input('height');
-        $user_detail->dop = $dob;
+        $user_detail->dob = $dob;
         $user_detail->mobilenumber = $request->input('mobilenumber');
         $user_detail->address = $request->input('address');
         $user_detail->district = $request->input('district');

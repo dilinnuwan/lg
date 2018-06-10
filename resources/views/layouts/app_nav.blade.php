@@ -35,6 +35,46 @@
 
     <!-- inject:js -->
     <script src="{{ asset('theme_src/js/template.js') }}"></script>
+
+    {{-- toast --}}
+    <script type="text/javascript">
+        @if(session('success_tost'))
+            $.toast({
+              heading: 'Success',
+              text: '{{session('success_tost')}}',
+              showHideTransition: 'slide',
+              icon: 'success',
+              loaderBg: '#f96868',
+              hideAfter: 5000,
+              position: 'bottom-left'
+            }).show();
+        @endif
+
+          @if(session('error_tost'))
+            $.toast({
+              heading: 'Danger',
+              text: '{{session('error_tost')}}',
+              showHideTransition: 'slide',
+              icon: 'error',
+              loaderBg: '#f96868',
+              hideAfter: 5000,
+              position: 'bottom-left'
+            }).show();
+          @endif
+
+          @if(session('warning_tost'))
+            $.toast({
+              heading: 'Warning',
+              text: '{{session('warning_tost')}}',
+              showHideTransition: 'slide',
+              icon: 'warning',
+              loaderBg: '#f96868',
+              hideAfter: 5000,
+              position: 'bottom-left'
+            }).show();
+          @endif
+    </script>
+
     @yield('js_script')
 </body>
 </html>

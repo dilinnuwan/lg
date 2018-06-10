@@ -77,7 +77,7 @@
 
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-            <a class="dropdown-item mt-2">
+            <a class="dropdown-item mt-2" href="/profile/{{$user->id}}">
               Profile
             </a>
             <a class="dropdown-item">

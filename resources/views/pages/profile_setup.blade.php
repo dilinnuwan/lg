@@ -143,10 +143,14 @@
 	            				<div class="card">
 									<div class="card-body">
 										<h4 class="card-title">Contact Details</h4>
-										<div class="form-group">
+										{{-- <div class="form-group">
 											<label>Mobile Number</label>
 											<input id="mobilenumber" type="tel" maxlength="10" pattern="[0][0-9]{9}" class="form-control{{ $errors->has('mobilenumber') ? ' is-invalid' : '' }}" name="mobilenumber" value="{{ old('mobilenumber') }}" placeholder="0771122233">
-										</div>
+										</div> --}}
+										<div class="form-group">
+					                    	<label>Mobile Number</label>
+					                    	<input class="form-control{{ $errors->has('mobilenumber') ? ' is-invalid' : '' }}" name="mobilenumber" id="mobilenumber" data-inputmask="'alias': 'phonebe'" value="{{ old('mobilenumber') }}" />
+					                	</div>
 										<div class="form-group">
 											<label>Address</label>
 											<input type="text" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('mobilenumber') }}" placeholder="Address" maxlength="100" required autofocus>
@@ -265,11 +269,9 @@
                         						<option>Retired Person</option>
                         						<option>Sales Professional</option>
                         						<option>Scientist</option>
-                        						<option>Self-employed Person</option>
                         						<option>Social Worker</option>
                         						<option>Software Consultant</option>
                         						<option>Sportsman</option>
-                        						<option>Student</option>
                         						<option>Teacher</option>
                         						<option>Technician</option>
                         						<option>Training Professional</option>

@@ -105,13 +105,21 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
                 </div>
-                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
+                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" minlength="2" name="firstname" value="{{ old('firstname') }}" required autofocus placeholder="First Name">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
+                </div>
+                <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" minlength="2" name="lastname" value="{{ old('lastname') }}" required autofocus placeholder="Last Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="mdi mdi-email-outline"></i></span>
                 </div>
                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="E-Mail">
               </div>

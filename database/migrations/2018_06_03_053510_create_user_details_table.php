@@ -21,7 +21,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('religion');
             $table->string('maritalstatus');
             $table->string('height');
-            $table->string('dop');
+            $table->string('dob');
             $table->string('mobilenumber')->nullable();
             $table->string('address');
             $table->string('district');
