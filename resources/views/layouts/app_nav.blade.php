@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('theme_src/vendors/css/vendor.bundle.addons.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme_src/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme_src/css/style_custom.css') }}">
+    
 
     @yield('css_script')
 </head>
@@ -36,6 +38,7 @@
     <!-- inject:js -->
     <script src="{{ asset('theme_src/js/template.js') }}"></script>
 
+
     {{-- toast --}}
     <script type="text/javascript">
         @if(session('success_tost'))
@@ -52,7 +55,7 @@
 
           @if(session('error_tost'))
             $.toast({
-              heading: 'Danger',
+              heading: 'Error',
               text: '{{session('error_tost')}}',
               showHideTransition: 'slide',
               icon: 'error',

@@ -68,7 +68,11 @@
               <h4 class="card-title">Suggestions</h4>
 
               @foreach($suggestions as $suggestion)
-              <div class="wrapper d-flex align-items-center py-2 border-bottom">
+              <div class="wrapper d-flex align-items-center py-2 
+              @if( !$loop->last )
+                border-bottom
+              @endif
+              ">
                 <a href="{{ url('/profile/'.$suggestion->User->id) }}">
                   <img class="img-sm rounded-circle" src="{{ asset('theme_src/profile_pics/'.$suggestion->User->Avatar->filename) }}" alt="profile">
                 </a>
@@ -89,9 +93,6 @@
 
         </div>
         <div class="col-md-8">
-          @include('inc.messages')
-          <form id="example-form" action="{{ route('profile.update',$some_user->id) }}" method="POST">
-            @csrf
           {{-- new card start --}}
           <div class="card">
             <div class="card-body">
@@ -102,10 +103,10 @@
                   <div class="col"><h5>{{$some_user->firstname.' '.$some_user->lastname}}</h5></div>
                 </div>
 
-                <div class="row border-bottom py-3">
+                {{-- <div class="row border-bottom py-3">
                   <div class="col-md-3">Email</div>
                   <div class="col"><h5>{{$some_user->email}}</h5></div>
-                </div>
+                </div> --}}
 
                 <div class="row border-bottom py-3">
                   <div class="col-md-3">Gender</div>
@@ -127,15 +128,15 @@
                   <div class="col"><h5>{{$some_user->UserDetail->maritalstatus}}</h5></div>
                 </div>
 
-                <div class="row border-bottom py-3">
+                <div class="row py-3">
                   <div class="col-md-3">Height</div>
                   <div class="col"><h5>{{$some_user->UserDetail->height}}</h5></div>
                 </div>
 
-                <div class="row py-3">
+                {{-- <div class="row py-3">
                   <div class="col-md-3">Date of birth</div>
                   <div class="col"><h5>{{date('d/m/Y', $some_user->UserDetail->dob)}}</h5></div>
-                </div>
+                </div> --}}
 
             </div>
           </div>
@@ -145,7 +146,7 @@
             <div class="card-body">
               <h4 class="card-title">Contact</h4>
 
-              <div class="row border-bottom py-3">
+              {{-- <div class="row border-bottom py-3">
                 <div class="col-md-3">Mobile Number</div>
                 <div class="col"><h5>{{$some_user->UserDetail->mobilenumber}}</h5></div>
               </div>
@@ -153,7 +154,7 @@
               <div class="row border-bottom py-3">
                 <div class="col-md-3">Address</div>
                 <div class="col"><h5>{{$some_user->UserDetail->address}}</h5></div>
-              </div>
+              </div> --}}
 
               <div class="row py-3">
                 <div class="col-md-3">District</div>
@@ -168,42 +169,41 @@
             <div class="card-body">
                   <h4 class="card-title">Work & Education</h4>
 
-                  <div class="row border-bottom py-3">
+                  <div class="row py-3
+                  @if($some_user->UserDetail->workingsector=="Not Working" || $some_user->UserDetail->workingsector=="Student")
+                  @else
+                    border-bottom
+                  @endif
+                  ">
                     <div class="col-md-3">Working Sector</div>
                     <div class="col"><h5>{{$some_user->UserDetail->workingsector}}</h5></div>
                   </div>
 
-                  @if($some_user->UserDetail->workingsector!="Not Working" or $some_user->UserDetail->workingsector!="Student" or $some_user->UserDetail->workingas!="Not listed here")
-                  <div class="row border-bottom py-3">
-                    <div class="col-md-3">Working As</div>
-                    <div class="col"><h5>{{$some_user->UserDetail->workingas}}</h5></div>
-                  </div>
-                  @endif
-
-                  @if($some_user->UserDetail->workingsector!="Not Working" || $some_user->UserDetail->workingsector!="Student" || $some_user->UserDetail->workingas=="Not listed here")
+                  @if($some_user->UserDetail->workingsector=="Not Working" || $some_user->UserDetail->workingsector=="Student")
+                  @else
                   <div class="row border-bottom py-3">
                     <div class="col-md-3">Profession</div>
-                    <div class="col"><h5>{{$some_user->UserDetail->profession}}</h5></div>
+                    <div class="col"><h5>
+                      @if($some_user->UserDetail->workingas !== "Not listed here")
+                      {{$some_user->UserDetail->workingas}}
+                      @else
+                      {{$some_user->UserDetail->profession}}
+                      @endif
+                    </h5></div>
                   </div>
                   @endif
 
-                  <div class="row py-3"
-                    @if($some_user->UserDetail->workingsector=="Not Working" || $some_user->UserDetail->workingsector=="Student")
-                      style="display: none"
-                    @else
-                      style=""
-                    @endif
-                  >
+                  @if($some_user->UserDetail->workingsector=="Not Working" || $some_user->UserDetail->workingsector=="Student")
+                  @else
+                  <div class="row py-3">
                     <div class="col-md-3">Income</div>
                     <div class="col"><h5>{{$some_user->UserDetail->income}}</h5></div>
                   </div>
+                  @endif
                   
-
-                 
             </div>
           </div>
 
-          </form>
         </div>
       </div>
       

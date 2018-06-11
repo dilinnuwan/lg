@@ -77,13 +77,13 @@
 
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-            <a class="dropdown-item mt-2" href="/profile/{{$user->id}}">
+            <a class="dropdown-item mt-2" href="{{ url('/profile/'.$user->id) }}">
               Profile
             </a>
-            <a class="dropdown-item">
+            <a class="dropdown-item" href="{{ url('/settings') }}">
               Settings
             </a>
-            <a class="dropdown-item">
+            <a class="dropdown-item" href="{{ url('/password-change') }}">
               Change Password
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

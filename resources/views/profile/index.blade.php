@@ -68,7 +68,11 @@
               <h4 class="card-title">Suggestions</h4>
 
               @foreach($suggestions as $suggestion)
-              <div class="wrapper d-flex align-items-center py-2 border-bottom">
+              <div class="wrapper d-flex align-items-center py-2 
+              @if( !$loop->last )
+                border-bottom
+              @endif
+              ">
                 <a href="{{ url('/profile/'.$suggestion->User->id) }}">
                   <img class="img-sm rounded-circle" src="{{ asset('theme_src/profile_pics/'.$suggestion->User->Avatar->filename) }}" alt="profile">
                 </a>
@@ -100,6 +104,7 @@
                   <label>First Name:</label>
                   <input name="firstname" class="form-control" value="{{$user->firstname}}" />
                 </div>
+
                 <div class="form-group">
                   <label>Last Name:</label>
                   <input name="lastname" class="form-control" value="{{$user->lastname}}" />

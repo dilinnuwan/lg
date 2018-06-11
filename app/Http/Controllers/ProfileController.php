@@ -35,7 +35,7 @@ class ProfileController extends Controller
         				->where('user_id', '!=' , $user->id)
         				->where('gender', '!=' , $user->UserDetail->gender)
         				->inRandomOrder()
-        				->limit(10)->get();
+        				->limit(5)->get();
     		return view('profile.index')->with('user',$user)->with('suggestions',$suggestions);
     	}else{
 
@@ -47,7 +47,7 @@ class ProfileController extends Controller
         				->where('user_id', '!=' , $user_id)
         				->where('gender', '!=' , $user->UserDetail->gender)
         				->inRandomOrder()
-        				->limit(10)->get();
+        				->limit(5)->get();
 
         	
     		return view('profile.other')->with('user',$user)->with('some_user',$some_user)->with('suggestions',$suggestions);
