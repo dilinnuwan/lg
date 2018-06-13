@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\UserDetail;
+use App\PrivacySetting;
 
 class ProfileSetupController extends Controller
 {
@@ -47,6 +48,12 @@ class ProfileSetupController extends Controller
         $user_detail->profession = $request->input('profession');
         $user_detail->income = $request->input('income');
         $user_detail->save();
+
+        $PrivacySetting = new PrivacySetting;
+        $PrivacySetting->user_id = $id;
+        $PrivacySetting->save();
+
+
 
         return redirect('/')->with('success','Profile Created Successfully');
     }

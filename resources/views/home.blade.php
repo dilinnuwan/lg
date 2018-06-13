@@ -25,6 +25,8 @@
 
 @extends('layouts.app_nav')
 
+@section('title', 'Home - ')
+
 @section('content')
 
 <div class="container-fluid page-body-wrapper">

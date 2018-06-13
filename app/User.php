@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Avatar');
     }
+
+    public function PrivacySetting()
+    {
+        return $this->hasOne('App\PrivacySetting');
+    }
 }

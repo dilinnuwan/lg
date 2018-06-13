@@ -83,9 +83,6 @@
             <a class="dropdown-item" href="{{ url('/settings') }}">
               Settings
             </a>
-            <a class="dropdown-item" href="{{ url('/password-change') }}">
-              Change Password
-            </a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               {{ __('Sign Out') }}
 
@@ -111,16 +108,16 @@
           <a href="pages/widgets.html" class="nav-link"><i class="link-icon mdi mdi-apple-safari"></i><span class="menu-title">SEARCH</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-atom"></i><span class="menu-title">LIKES</span></a>
+          <a href="#" class="nav-link"><i class="link-icon mdi mdi-atom"></i><span class="menu-title">HOROSCOPES</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">LIKED</span></a>
+          <a href="#" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">INTERESTS</span></a>
         </li>
         <li class="nav-item mega-menu">
           <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">CHAT</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">HOROSCOPES</span></a>
+          <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">GALLERY</span></a>
         </li>
       </ul>
     </div>

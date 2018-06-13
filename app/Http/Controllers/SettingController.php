@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\PrivacySetting;
 
 
 class SettingController extends Controller
@@ -14,7 +15,8 @@ class SettingController extends Controller
 
     public function index(){
     	$user = Auth::user();
+    	$privacySettings = $user->PrivacySetting;
 
-        return view('settings.settings')->with('user',$user);
+        return view('settings.settings')->with('user',$user)->with('privacySettings',$privacySettings);
     }
 }

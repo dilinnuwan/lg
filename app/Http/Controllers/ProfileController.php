@@ -28,15 +28,16 @@ class ProfileController extends Controller
     	
 
     	if ($user_id == $user->id) {
+            $suggestions = UserDetail::where('district', $user->UserDetail->district)
+                    ->where('user_id', '!=' , $user->id)
+                    ->where('gender', '!=' , $user->UserDetail->gender)
+                    ->inRandomOrder()
+                    ->limit(5)->get();
 
-    		//logged in user
+            $privacySettings = $user->PrivacySetting;
+
+            return view('profile.index')->with('user',$user)->with('some_user',$user)->with('suggestions',$suggestions)->with('privacySettings',$privacySettings);
     		
-    		$suggestions = UserDetail::where('district', $user->UserDetail->district)
-        				->where('user_id', '!=' , $user->id)
-        				->where('gender', '!=' , $user->UserDetail->gender)
-        				->inRandomOrder()
-        				->limit(5)->get();
-    		return view('profile.index')->with('user',$user)->with('suggestions',$suggestions);
     	}else{
 
     		//showing a different user
@@ -49,10 +50,17 @@ class ProfileController extends Controller
         				->inRandomOrder()
         				->limit(5)->get();
 
+            $privacySettings = $some_user->PrivacySetting;
         	
-    		return view('profile.other')->with('user',$user)->with('some_user',$some_user)->with('suggestions',$suggestions);
+    		return view('profile.index')->with('user',$user)->with('some_user',$some_user)->with('suggestions',$suggestions)->with('privacySettings',$privacySettings);
     	}
 
+    }
+
+    public function edit()
+    {
+        $user = Auth::user();
+        return view('profile.edit')->with('user',$user);
     }
 
     public function update(Request $request, $id)

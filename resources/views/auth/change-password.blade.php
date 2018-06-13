@@ -1,5 +1,5 @@
 @extends('layouts.app_nav')
-
+@section('title', 'Password Change - ')
 @section('content')
 
 <div class="container-fluid page-body-wrapper">
@@ -11,10 +11,10 @@
         <div class="col-md-8 offset-md-2">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Basic Details</h4>
+              <h4 class="card-title">Change Password</h4>
                 @include('inc.messages')
                 <form action="{{ route('auth.password-change') }}" method="post" role="form" class="form-horizontal">
-                    @csrf
+                    
 
                         <div class="row form-group{{ $errors->has('old') ? ' has-error' : '' }}">
                             <label for="password" class="col-sm-3 col-form-label">Old Password</label>
@@ -25,7 +25,7 @@
                         </div>
 
                             <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                <label for="password" class="col-sm-3 col-form-label">New Password</label>
 
                                 <div class="col-sm-9">
                                     <input id="password" type="password" class="form-control" name="password">
@@ -42,6 +42,7 @@
 
                         <div class="row form-group mt-5">
                             <div class="col-md-12">
+                            @csrf
                             <input type="hidden" name="_method" value="PUT" />
                             <button type="submit" class="btn btn-primary form-control">Change</button>
                                 </div>

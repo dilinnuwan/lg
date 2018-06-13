@@ -22794,7 +22794,7 @@ div.tagsinput {
             -webkit-transform: rotate(-180deg);
             transform: rotate(-180deg); }
         .navbar.horizontal-layout .nav-bottom .page-navigation > .nav-item.active > .nav-link {
-          background: linear-gradient(30deg, #464de4, #814eff);
+          background: linear-gradient(30deg, #ff6f59, #ec6190);
           color: #fff; }
           .navbar.horizontal-layout .nav-bottom .page-navigation > .nav-item.active > .nav-link .link-icon,
           .navbar.horizontal-layout .nav-bottom .page-navigation > .nav-item.active > .nav-link .menu-arrow {

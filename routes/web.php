@@ -30,6 +30,7 @@ Route::match(['put', 'patch'], 'avatar-setup/{profile}', 'AvatarSetupController@
 
 //profile
 Route::get('/profile/{user_id?}', 'ProfileController@index');
+Route::get('/profile-edit', 'ProfileController@edit')->name('profile.edit');
 Route::match(['put', 'patch'], 'profile/{profile}', 'ProfileController@update')->name('profile.update');
 
 //change password
@@ -38,3 +39,5 @@ Route::match(['put', 'patch'], '/password-change', 'Auth\UpdatePasswordControlle
 
 //settings
 Route::get('/settings', 'SettingController@index');
+Route::match('put', '/privacy-settings', 'PrivacySettingsController@update')->name('privacy_settings');
+
