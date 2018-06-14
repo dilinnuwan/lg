@@ -1,4 +1,6 @@
 (function($) {
   'use strict';
-  $('.dropify').dropify();
+  $('.dropify').dropify({
+  	data-allowed-file-extensions="jpg",
+  });
 })(jQuery);

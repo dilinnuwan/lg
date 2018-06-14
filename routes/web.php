@@ -41,3 +41,7 @@ Route::match(['put', 'patch'], '/password-change', 'Auth\UpdatePasswordControlle
 Route::get('/settings', 'SettingController@index');
 Route::match('put', '/privacy-settings', 'PrivacySettingsController@update')->name('privacy_settings');
 
+//gallery
+Route::get('/gallery', 'GalleryController@index');
+Route::post('/gallery' , 'GalleryController@upload')->name('gallery.upload');
+Route::get('/gallery/delete/{id?}', 'GalleryController@delete');

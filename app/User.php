@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\PrivacySetting');
     }
+
+    public function Gallery()
+    {
+        return $this->hasMany('App\Gallery');
+    }
 }
