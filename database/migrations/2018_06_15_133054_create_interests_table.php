@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrivacySettingsTable extends Migration
+class CreateInterestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreatePrivacySettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('privacy_settings', function (Blueprint $table) {
+        Schema::create('interests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->boolean('email')->default('0');
-            $table->boolean('dob')->default('1');
-            $table->boolean('mobile_number')->default('0');
-            $table->boolean('address')->default('0');
-            $table->boolean('income')->default('0');
+            $table->integer('interest_user_id');
+            $table->string('mode')->default('request');
             $table->timestamps();
+
+            //===== modes are
+            //request
+            //interest
+            //block
         });
     }
 
@@ -32,6 +34,6 @@ class CreatePrivacySettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('privacy_settings');
+        Schema::dropIfExists('interests');
     }
 }
