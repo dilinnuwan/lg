@@ -15,6 +15,7 @@
 
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('theme_src/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme_src/vendors/iconfonts/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('theme_src/vendors/css/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('theme_src/vendors/css/vendor.bundle.addons.css') }}">
 

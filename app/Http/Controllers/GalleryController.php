@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Gallery;
 use Storage;
+use Image;
 
 class GalleryController extends Controller
 {
@@ -18,7 +19,8 @@ class GalleryController extends Controller
     public function index()
     {
         $user = Auth::user();
-    	return view('gallery.index')->with('user',$user);
+
+        return view('gallery.index')->with('user',$user);
     }
 
     public function upload(Request $request)
@@ -26,20 +28,21 @@ class GalleryController extends Controller
         $user = Auth::user();
 
     	$images = $request->file('file');
-    	$i=1;
 
     	foreach ($images as $image) {
     		$ext = $image->extension();
-
 	        $imageName = time().'_'.str_random(2).'.'.$ext;
-	        $path = Storage::putFileAs('public/upload_images',$image,$imageName);
+	        $path = Storage::putFileAs('public/upload_images/',$image,$imageName);
+
+            $thumb_img = Image::make($image->getRealPath())->fit(247)->resize(247, 247);
+            $destinationPath = public_path('/storage/upload_images_thumb');
+            $thumb_img->save($destinationPath.'/'.$imageName,80);
+
 
 	        $gallery = new Gallery;
 	        $gallery->user_id = $user->id;
 	        $gallery->image_path = $imageName;
 	        $gallery->save();
-
-	        $i++;
 
 	        // $upload_success = $image->move(public_path('upload_images'),$imageName);
 	        
@@ -52,6 +55,7 @@ class GalleryController extends Controller
     {
     	$image = Gallery::find($id);
     	$delete_flag = Storage::delete('public/upload_images/'.$image->image_path);
+        $delete_flag = Storage::delete('public/upload_images_thumb/'.$image->image_path);
     	$delete_flag = $image->delete();
 
     	if($delete_flag){
@@ -60,5 +64,25 @@ class GalleryController extends Controller
     	else{
     		return redirect()->back()->with('error_tost','Delete Error. Please Try Again');
     	}
+    }
+
+    public function update($id,$status)
+    {
+        $image = Gallery::find($id);
+
+        if($status == 'hide')
+        {
+            $image->active = 0;
+            $image->save();
+            return redirect()->back()->with('success_tost','Image Hidden Successfully');
+        }
+        elseif($status == 'show'){
+            $image->active = 1;
+            $image->save();
+            return redirect()->back()->with('success_tost','Image Activated Successfully');
+        }
+        else{
+            return redirect()->back();
+        }
     }
 }

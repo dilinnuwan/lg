@@ -21,13 +21,45 @@
               	<div class="col-md-3 mt-2">
               		<div class="card" style="border-width: 0px;">
               			<span style=""></span>
-              			<img class="card-img-top img-fluid" style="border-radius: 1px; width: 247px; height: 247px" src="{{asset('storage/upload_images/'.$image->image_path)}}" alt="card image">
-              			<a href="{{url('/gallery/delete/'.$image->id)}}" class="btn btn-danger mt-1"><i class="link-icon mdi mdi-delete"></i>Remove</a>
+              			<img class="card-img-top img-fluid" style="border-radius: 1px; width: auto; 
+                    @if(!$image->active)
+                    -webkit-filter: grayscale(100%) blur(5px);
+                    filter: grayscale(100%) blur(5px);
+                    @endif
+                    " src="{{asset('storage/upload_images_thumb/'.$image->image_path)}}" alt="card image">
+                    {{-- <div class="btn-group"  role="group">
+
+                       <a href="{{url('/gallery/delete/'.$image->id)}}" class="btn btn-light btn-block mt-1"><i class="link-icon mdi mdi-delete"></i>Hide</a>
+              			   <a href="{{url('/gallery/delete/'.$image->id)}}" class="btn btn-danger btn-block mt-1"><i class="link-icon mdi mdi-delete"></i>Remove</a>
+                    </div> --}}
+
+                      <div class="btn-group dropdown mt-1" style="border:none;">
+                        <button type="button" class="btn
+                          @if(!$image->active)
+                          btn-secondary
+                          @else
+                          btn-primary
+                          @endif
+                          btn-block dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Settings <i class="fa fa-caret-down fa-fw"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          @if($image->active)
+                            <a class="dropdown-item" href="{{url('/gallery/stat/'.$image->id.'/hide')}}"><i class="fa fa-eye-slash fa-fw"></i>Hide</a>
+                          @else
+                            <a class="dropdown-item" href="{{url('/gallery/stat/'.$image->id.'/show')}}"><i class="fa fa-eye fa-fw"></i>Activate</a>
+                          @endif
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{url('/gallery/delete/'.$image->id)}}"><i class="fa fa-trash-o text-danger fa-fw"></i>Delete</a>
+                        </div>
+                      </div>
+
+
               		</div>
               	</div>
               	@endforeach
-			</div>
-			@endif
+      			</div>
+      			@endif
 
 
               {{-- If the gallery is empty --}}

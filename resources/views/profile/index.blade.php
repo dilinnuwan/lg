@@ -20,22 +20,14 @@
           @endif
 
           
-          {{-- new card start --}}
-          <div class="card mt-2">
-            <div class="card-body">
-              <h4 class="card-title">Gallery</h4>
-              <div id="lightgallery" class="row lightGallery">
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/1.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/1.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/2.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/2.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/3.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/3.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/4.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/4.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/5.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/5.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/6.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/6.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/7.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/7.jpg" alt="image small"></a>
-                <a href="{{ asset('theme_src') }}/images/samples/1280x768/8.jpg" class="image-tile"><img src="{{ asset('theme_src') }}/images/samples/300x300/8.jpg" alt="image small"></a>
-              </div>
-            </div>
-          </div>
+          {{-- gallery card --}}
+          @if($some_user == $user)
+            @include('components.user_gallery_card')
+          @else
+            @include('components.some_user_gallery_card')
+          @endif
+
+
 
           {{-- suggestion card --}}
           @include('components.suggestion_card')

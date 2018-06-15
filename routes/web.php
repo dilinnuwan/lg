@@ -45,3 +45,4 @@ Route::match('put', '/privacy-settings', 'PrivacySettingsController@update')->na
 Route::get('/gallery', 'GalleryController@index');
 Route::post('/gallery' , 'GalleryController@upload')->name('gallery.upload');
 Route::get('/gallery/delete/{id?}', 'GalleryController@delete');
+Route::get('/gallery/stat/{id?}/{stat?}', 'GalleryController@update');
