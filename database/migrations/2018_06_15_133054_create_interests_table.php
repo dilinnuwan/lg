@@ -16,13 +16,13 @@ class CreateInterestsTable extends Migration
         Schema::create('interests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('interest_user_id');
+            $table->integer('interest_id');
             $table->string('mode')->default('request');
             $table->timestamps();
 
             //===== modes are
             //request
-            //interest
+            //accepted
             //block
         });
     }

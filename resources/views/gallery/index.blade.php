@@ -97,7 +97,7 @@
 
 @section('css_script')
 <link rel="stylesheet" href="{{ asset('theme_src/vendors/lightgallery/css/lightgallery.css') }}">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css">
+<link rel="stylesheet" type="text/css" href="theme_src/css/dropzone.css">
 <style type="text/css">
     .dropzone {
         border:2px dashed #0088ff;
@@ -127,7 +127,7 @@
 @section('js_script')
 <script src="{{ asset('theme_src/vendors/lightgallery/js/lightgallery-all.min.js') }}"></script>
 <script src="{{ asset('theme_src/js/light-gallery.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+<script src="theme_src/custom_js/dropzone.js"></script>
 <script type="text/javascript">
   Dropzone.options.fileupload = {
   	paramName: 'file[]',

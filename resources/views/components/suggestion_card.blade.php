@@ -24,7 +24,7 @@
         </a>
       </div>
       <div class="ml-auto px-1 py-1">
-        <button type="button" class="btn btn-warning btn-xs" style="background-color: #ec6190; border-color: #ec6190;">
+        <button type="button" class="btn btn-warning btn-xs interest" data-user_id="{{$suggestion->User->id}}" data-type="interest" style="background-color: #ec6190; border-color: #ec6190;">
           <i class="mdi mdi-heart"></i>
           INTEREST
         </button>

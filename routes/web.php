@@ -46,3 +46,19 @@ Route::get('/gallery', 'GalleryController@index');
 Route::post('/gallery' , 'GalleryController@upload')->name('gallery.upload');
 Route::get('/gallery/delete/{id?}', 'GalleryController@delete');
 Route::get('/gallery/stat/{id?}/{stat?}', 'GalleryController@update');
+
+//interest
+Route::get('/interests', 'InterestController@index');
+Route::get('/requests/sent', 'InterestController@requests_sent');
+Route::get('/requests/received', 'InterestController@requests_received');
+Route::post('/interest/create', 'InterestController@create');
+Route::post('/interest/delete', 'InterestController@delete');
+Route::post('/interest/update', 'InterestController@update');
+
+//notification
+Route::get('/notifications', 'NotificationController@index');
+Route::get('/notifications/count', 'NotificationController@count');
+
+
+//search
+Route::get('/search', 'SearchController@index');

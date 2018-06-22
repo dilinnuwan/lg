@@ -28,31 +28,19 @@ class ProfileController extends Controller
     	
 
     	if ($user_id == $user->id) {
-            $suggestions = UserDetail::where('district', $user->UserDetail->district)
-                    ->where('user_id', '!=' , $user->id)
-                    ->where('gender', '!=' , $user->UserDetail->gender)
-                    ->inRandomOrder()
-                    ->limit(5)->get();
 
             $privacySettings = $user->PrivacySetting;
 
-            return view('profile.index')->with('user',$user)->with('some_user',$user)->with('suggestions',$suggestions)->with('privacySettings',$privacySettings);
+            return view('profile.index')->with('user',$user)->with('some_user',$user)->with('privacySettings',$privacySettings);
     		
     	}else{
 
     		//showing a different user
     		$some_user = User::find($user_id);
 
-    		$suggestions = UserDetail::where('district', $user->UserDetail->district)
-        				->where('user_id', '!=' , $user->id)
-        				->where('user_id', '!=' , $user_id)
-        				->where('gender', '!=' , $user->UserDetail->gender)
-        				->inRandomOrder()
-        				->limit(5)->get();
-
             $privacySettings = $some_user->PrivacySetting;
         	
-    		return view('profile.index')->with('user',$user)->with('some_user',$some_user)->with('suggestions',$suggestions)->with('privacySettings',$privacySettings);
+    		return view('profile.index')->with('user',$user)->with('some_user',$some_user)->with('privacySettings',$privacySettings);
     	}
 
     }

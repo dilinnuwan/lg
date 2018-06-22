@@ -9,59 +9,13 @@
       </span>
       <ul class="navbar-nav navbar-nav-right mr-0">
         <li class="nav-item dropdown ml-4">
-          <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+          <a class="nav-link count-indicator " href="{{ url('/notifications') }}">
             <i class="mdi mdi-bell-outline"></i>
-            <span class="count bg-warning">4</span>
+            <div id="notification_count">
+              <span class="count bg-warning" id="notification_count_span" @if(App\Helper::notification_count() ==0) style="display: none;" @endif>{!!App\Helper::notification_count()!!}</span>
+            </div>
           </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-            <a class="dropdown-item py-3">
-              <p class="mb-0 font-weight-medium float-left">You have 4 new notifications
-              </p>
-              <span class="badge badge-pill badge-inverse-info float-right">View all</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-inverse-success">
-                  <i class="mdi mdi-alert-circle-outline mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
-                <p class="font-weight-light small-text mb-0">
-                  Just now
-                </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-inverse-warning">
-                  <i class="mdi mdi-comment-text-outline mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
-                <p class="font-weight-light small-text mb-0">
-                  Private message
-                </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-inverse-info">
-                  <i class="mdi mdi-email-outline mx-0"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">New user registration</h6>
-                <p class="font-weight-light small-text mb-0">
-                  2 days ago
-                </p>
-              </div>
-            </a>
-          </div>
+          
         </li>
         <li class="nav-item dropdown d-none d-xl-inline-block">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -102,22 +56,31 @@
     <div class="container">
       <ul class="nav page-navigation">
         <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-          <a href="{{ url('/') }}" class="nav-link"><i class="link-icon mdi mdi-television"></i><span class="menu-title">HOME</span></a>
+          <a href="{{ url('/') }}" class="nav-link"><i class="link-icon fa fa-rocket"></i><span class="menu-title">HOME</span></a>
         </li>
         <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link"><i class="link-icon mdi mdi-apple-safari"></i><span class="menu-title">SEARCH</span></a>
+          <a href="{{ url('/search') }}" class="nav-link"><i class="link-icon fa fa-search"></i><span class="menu-title">SEARCH</span></a>
+        </li>
+        {{-- <li class="nav-item mega-menu">
+          <a href="{{ url('/requests') }}" class="nav-link"><i class="link-icon mdi mdi-atom"></i><span class="menu-title">REQUESTS</span></a>
+        </li> --}}
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="link-icon fa fa-bolt"></i><span class="menu-title">REQUESTS</span><i class="menu-arrow"></i></a>
+          <div class="submenu">
+            <ul class="submenu-item">
+              <li class="nav-item"><a class="nav-link" href="{{ url('/requests/sent') }}">SENT</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url('/requests/received') }}">RECEIVED</a></li>
+            </ul>
+          </div>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-atom"></i><span class="menu-title">HOROSCOPES</span></a>
+          <a href="{{ url('/interests') }}" class="nav-link"><i class="link-icon fa fa-heart"></i><span class="menu-title">INTERESTS</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-flag-outline"></i><span class="menu-title">INTERESTS</span></a>
+          <a href="#" class="nav-link"><i class="link-icon fa fa-paper-plane"></i><span class="menu-title">CHAT</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">CHAT</span></a>
-        </li>
-        <li class="nav-item mega-menu">
-          <a href="{{ url('/gallery') }}" class="nav-link"><i class="link-icon mdi mdi-android-studio"></i><span class="menu-title">GALLERY</span></a>
+          <a href="{{ url('/gallery') }}" class="nav-link"><i class="link-icon fa fa-image"></i><span class="menu-title">GALLERY</span></a>
         </li>
       </ul>
     </div>

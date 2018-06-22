@@ -47,4 +47,27 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Gallery');
     }
+
+    public function Interest()
+    {
+        // return $this->hasMany('App\Interest');
+        return $this->hasMany('App\Interest')->where('mode','accepted');
+    }
+
+    public function Interest_requests()
+    {
+        // return $this->hasMany('App\Interest');
+        return $this->hasMany('App\Interest')->where('mode','request');
+    }
+
+    public function Notification_active()
+    {
+        return $this->hasMany('App\Notification')->where('active',1);
+    }
+    public function Notification()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
+    
 }

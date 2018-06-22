@@ -29,11 +29,9 @@
         </div>
     </div>
 
-    <button class="btn btn-warning btn-block btn-sm mt-3 mb-4" style="background-color: #ec6190; border-color: #ec6190;">
-      <i class="mdi mdi-heart"></i>
-      Interest
-    </button>
-    <button class="btn btn-light btn-block btn-sm mt-3 mb-4">Report</button>
+    {!! App\Helper::interest_button($user->id, $some_user->id) !!}
+    
+    <button class="btn btn-light btn-block btn-xs mt-3 mb-4">Report</button>
 
 
     </div>

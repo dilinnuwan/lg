@@ -39,6 +39,12 @@
     <!-- inject:js -->
     <script src="{{ asset('theme_src/js/template.js') }}"></script>
 
+    {{-- interest js --}}
+    <script src="{{ asset('theme_src/custom_js/interest.js') }}"></script>
+
+    {{-- script js --}}
+    <script src="{{ asset('theme_src/custom_js/script.js') }}"></script>
+
 
     {{-- toast --}}
     <script type="text/javascript">
@@ -78,6 +84,8 @@
             }).show();
           @endif
     </script>
+
+
 
     @yield('js_script')
 </body>

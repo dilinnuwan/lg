@@ -1,6 +1,6 @@
 {{-- new card start --}}
 @if($some_user->Gallery->count() != 0)
-<div class="card mt-2">
+<div class="card mt-2 mb-2">
   <div class="card-body">
     <h4 class="card-title">Gallery</h4>
     <div id="lightgallery" class="row lightGallery">

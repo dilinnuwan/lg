@@ -30,7 +30,7 @@
 
 
           {{-- suggestion card --}}
-          @include('components.suggestion_card')
+          {{-- @include('components.suggestion_card') --}}
 
         </div>
         <div class="col-md-8">
@@ -72,7 +72,11 @@
                   <div class="col"><h5>{{$some_user->UserDetail->maritalstatus}}</h5></div>
                 </div>
 
-                <div class="row py-3">
+                <div class="row py-3 
+                @if($privacySettings->dob)
+                  border-bottom
+                @endif
+                ">
                   <div class="col-md-3">Height</div>
                   <div class="col"><h5>{{$some_user->UserDetail->height}}</h5></div>
                 </div>
