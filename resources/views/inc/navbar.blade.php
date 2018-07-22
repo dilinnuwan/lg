@@ -77,7 +77,7 @@
           <a href="{{ url('/interests') }}" class="nav-link"><i class="link-icon fa fa-heart"></i><span class="menu-title">INTERESTS</span></a>
         </li>
         <li class="nav-item mega-menu">
-          <a href="#" class="nav-link"><i class="link-icon fa fa-paper-plane"></i><span class="menu-title">CHAT</span></a>
+          <a href="{{ url('/chat') }}" class="nav-link"><i class="link-icon fa fa-paper-plane"></i><span class="menu-title">CHAT</span></a>
         </li>
         <li class="nav-item mega-menu">
           <a href="{{ url('/gallery') }}" class="nav-link"><i class="link-icon fa fa-image"></i><span class="menu-title">GALLERY</span></a>

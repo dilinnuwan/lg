@@ -59,6 +59,11 @@ Route::post('/interest/update', 'InterestController@update');
 Route::get('/notifications', 'NotificationController@index');
 Route::get('/notifications/count', 'NotificationController@count');
 
+//chat
+Route::get('/chat',function ()
+{
+	return view('chat.index')->with('user',Auth::user());
+});
 
 //search
 Route::get('/search', 'SearchController@index');

@@ -58,3 +58,76 @@ input:checked + .slider:before {
 }
 
 
+
+/*email scroll*/
+.sidemenu_email_scroll{
+  height: 750px!important;
+  overflow-y: scroll!important;
+}
+
+.message_scroll{
+  height: 565px!important;
+  overflow-y: scroll!important;
+}
+
+.message_item{
+  margin-left:0;
+  margin-right:auto;
+  width: fit-content;
+  max-width: 60%;
+}
+
+.message_item_active{
+  margin-left:auto;
+  margin-right:0;
+  width: fit-content;
+  max-width: 60%;
+}
+
+.message_item_bubble{
+  margin-top: 10px;
+  background-color: #e8e8e8;
+  border-radius: 15px;
+  color: #474747;
+  padding: 10px 15px 1px 15px;
+}
+
+.message_item_active_bubble{
+  margin-top: 10px;
+  background-color: #ec6291;
+  border-radius: 15px;
+  color: #fff;
+  padding: 10px 15px 1px 15px;
+}
+
+.chat_timestamp{
+  font-size: 10px;
+  font-style: italic;
+  color: #ccc;
+}
+.chat_text{
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: rgba(150,150,150,0.8);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(150,150,150,0.2); 
+}
+

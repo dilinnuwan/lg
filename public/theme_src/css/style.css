@@ -12553,7 +12553,7 @@ button.bg-dark:focus {
   display: inline-flex !important; }
 
 @media (min-width: 576px) {
-  .d-sm-none {
+  /*.d-sm-none {
     display: none !important; }
   .d-sm-inline {
     display: inline !important; }
@@ -12570,7 +12570,8 @@ button.bg-dark:focus {
   .d-sm-flex {
     display: flex !important; }
   .d-sm-inline-flex {
-    display: inline-flex !important; } }
+    display: inline-flex !important; } */
+}
 
 @media (min-width: 768px) {
   .d-md-none {
@@ -20044,7 +20045,9 @@ ul {
       max-height: 100%;
       height: auto;
       overflow-y: auto;
-      overflow-x: hidden; } }
+      overflow-x: hidden; 
+    } 
+  }
   .email-wrapper .mail-sidebar .menu-bar .menu-items {
     padding: 0;
     margin-bottom: 0;
